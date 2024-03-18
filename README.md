@@ -1,3 +1,5 @@
+This fork is intended only to provide method to deploy glpi on air gap network. The official method does not permit to run the docker on air gap network as it try to download within the container the GLPI source.
+
 # Project to deploy GLPI with docker
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/diouxx/glpi) ![Docker Stars](https://img.shields.io/docker/stars/diouxx/glpi) [![](https://images.microbadger.com/badges/image/diouxx/glpi.svg)](http://microbadger.com/images/diouxx/glpi "Get your own image badge on microbadger.com") ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/diouxx/glpi)

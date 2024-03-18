@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #Controle du choix de version ou prise de la latest
-[[ ! "$VERSION_GLPI" ]] \
-	&& VERSION_GLPI=$(curl -s https://api.github.com/repos/glpi-project/glpi/releases/latest | grep tag_name | cut -d '"' -f 4)
+VERSION_GLPI=10.0.14
 
 if [[ -z "${TIMEZONE}" ]]; then echo "TIMEZONE is unset"; 
 else 
@@ -28,10 +27,7 @@ if [ "$(ls ${FOLDER_WEB}${FOLDER_GLPI})" ];
 then
 	echo "GLPI is already installed"
 else
-	SRC_GLPI=$(curl -s https://api.github.com/repos/glpi-project/glpi/releases/tags/${VERSION_GLPI} | jq .assets[0].browser_download_url | tr -d \")
-	TAR_GLPI=$(basename ${SRC_GLPI})
-
-	wget -P ${FOLDER_WEB} ${SRC_GLPI}
+	TAR_GLPI=glpi-${VERSION_GLPI}.tgz
 	tar -xzf ${FOLDER_WEB}${TAR_GLPI} -C ${FOLDER_WEB}
 	rm -Rf ${FOLDER_WEB}${TAR_GLPI}
 	chown -R www-data:www-data ${FOLDER_WEB}${FOLDER_GLPI}

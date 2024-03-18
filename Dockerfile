@@ -36,7 +36,8 @@ libldap-common \
 libsasl2-2 \
 libsasl2-modules \
 libsasl2-modules-db \
-&& rm -rf /var/lib/apt/lists/*
+&& rm -rf /var/lib/apt/lists/* \
+&& wget -P /var/www/html/ https://github.com/glpi-project/glpi/releases/download/10.0.14/glpi-10.0.14.tgz
 
 #Copie et execution du script pour l'installation et l'initialisation de GLPI
 COPY glpi-start.sh /opt/

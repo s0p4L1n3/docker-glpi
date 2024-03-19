@@ -39,6 +39,11 @@ libsasl2-modules-db \
 && rm -rf /var/lib/apt/lists/* \
 && wget -P /var/www/html/ https://github.com/glpi-project/glpi/releases/download/10.0.14/glpi-10.0.14.tgz
 
+#Create custom GID for same group owner ID between Host and Container
+RUN groupmod --gid 40000 www-data \
+&& usermod --uid 40000 --gid 40000 www-data \
+&& chown -R www-data:www-data /var/www/html/
+
 #Copie et execution du script pour l'installation et l'initialisation de GLPI
 COPY glpi-start.sh /opt/
 RUN chmod +x /opt/glpi-start.sh

@@ -26,6 +26,8 @@ fi
 if [ "$(ls ${FOLDER_WEB}${FOLDER_GLPI})" ];
 then
 	echo "GLPI is already installed"
+ 	TAR_GLPI=glpi-${VERSION_GLPI}.tgz
+  	rm -Rf ${FOLDER_WEB}${TAR_GLPI}
 else
 	TAR_GLPI=glpi-${VERSION_GLPI}.tgz
 	tar -xzf ${FOLDER_WEB}${TAR_GLPI} -C ${FOLDER_WEB}

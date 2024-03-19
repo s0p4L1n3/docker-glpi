@@ -1,5 +1,9 @@
 This fork is intended only to provide method to deploy glpi on air gap network. The official method does not permit to run the docker on air gap network as it try to download within the container the GLPI source.
 
+It also help to fix the permissions issue between the container and the host by defining new UID/GID to www-data user/group so that it match a defined UID/GID on your host.
+
+I decided to use 40000 as UID/GID as it is not common.
+
 # Project to deploy GLPI with docker
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/diouxx/glpi) ![Docker Stars](https://img.shields.io/docker/stars/diouxx/glpi) [![](https://images.microbadger.com/badges/image/diouxx/glpi.svg)](http://microbadger.com/images/diouxx/glpi "Get your own image badge on microbadger.com") ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/diouxx/glpi)
